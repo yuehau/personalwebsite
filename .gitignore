@@ -1,0 +1,19 @@
+# Dependencies (huge, never commit — reinstall with npm install)
+web/node_modules/
+node_modules/
+
+# Next.js build output
+web/.next/
+web/out/
+
+# Python
+__pycache__/
+*.pyc
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Claude Code session-local tooling (not site content)
+.claude/settings.local.json
+.remember/

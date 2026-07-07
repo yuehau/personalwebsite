@@ -1,0 +1,280 @@
+@import "tailwindcss";
+
+/* ============================================================
+   "Chapters of Cover" design system
+   Allianz-blue trust + honey-gold accent + Fraunces / Hanken.
+   Token names kept stable so all pages inherit the new look.
+   ============================================================ */
+@theme {
+  /* Brand blues */
+  --color-brand: #0a4fa0;
+  --color-navy: #0c1e3a;
+  --color-ink: #0c1e3a;
+  --color-mid: #08336b;
+  --color-bright: #2e8bd4;
+
+  /* Surfaces */
+  --color-paper: #fafcfe;
+  --color-mist: #e2edf8;
+  --color-sky: #e2edf8;
+  --color-ice: #eef4fa;
+  --color-cloud: #f4f8fc;
+
+  /* Honey-gold — the single premium accent */
+  --color-gold: #bd8a3d;
+  --color-gold-soft: #e7c77e;
+
+  /* Functional */
+  --color-success: #18b960;
+  --color-whatsapp: #25d366;
+
+  /* Text + lines */
+  --color-body: #36465e;
+  --color-muted: #66788f;
+  --color-hair: #dce6f2;
+
+  /* Typography */
+  --font-sans: var(--font-hanken), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-fraunces), Georgia, "Times New Roman", serif;
+
+  /* Radius */
+  --radius-card: 18px;
+
+  /* Elevation — soft, navy-tinted */
+  --shadow-e1: 0 1px 2px rgba(12, 30, 58, 0.04), 0 4px 16px rgba(12, 30, 58, 0.06);
+  --shadow-e2: 0 8px 30px rgba(12, 30, 58, 0.10);
+  --shadow-e3: 0 30px 70px rgba(12, 30, 58, 0.16);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background: var(--color-paper);
+    color: var(--color-body);
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Display serif owns the headlines; small utility heads stay sans */
+  h1, h2, h3 {
+    font-family: var(--font-display);
+    font-weight: 540;
+    letter-spacing: -0.015em;
+    color: var(--color-ink);
+    line-height: 1.08;
+    text-wrap: balance;
+  }
+  h4, h5, h6 {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    color: var(--color-ink);
+  }
+
+  ::selection {
+    background: var(--color-gold-soft);
+    color: var(--color-navy);
+  }
+
+  a { color: inherit; }
+
+  :focus-visible {
+    outline: 2.5px solid var(--color-gold);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+}
+
+@layer components {
+  .container-x {
+    width: 100%;
+    max-width: 1180px;
+    margin-inline: auto;
+    padding-inline: 1.5rem;
+  }
+
+  /* Eyebrow — tracked utility label with a gold tick */
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-family: var(--font-sans);
+    font-size: 0.74rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-mid);
+  }
+  .eyebrow::before {
+    content: "";
+    width: 1.5rem;
+    height: 2px;
+    background: var(--color-gold);
+  }
+
+  /* Italic serif accent for emotional emphasis */
+  .serif-accent {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 500;
+  }
+
+  .gold-rule {
+    height: 2px;
+    width: 3.25rem;
+    background: var(--color-gold);
+  }
+
+  /* Buttons */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 0.95rem;
+    line-height: 1;
+    padding: 0.9rem 1.5rem;
+    border-radius: 999px;
+    transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease,
+      border-color 0.18s ease;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .btn:hover { transform: translateY(-2px); }
+  .btn:active { transform: translateY(0); }
+
+  .btn-primary {
+    background: var(--color-brand);
+    color: #fff;
+    box-shadow: var(--shadow-e1);
+  }
+  .btn-primary:hover { background: var(--color-mid); box-shadow: var(--shadow-e2); }
+
+  .btn-gold {
+    background: var(--color-gold);
+    color: #fff;
+    box-shadow: var(--shadow-e1);
+  }
+  .btn-gold:hover { background: #a9772f; }
+
+  .btn-whatsapp {
+    background: var(--color-whatsapp);
+    color: #fff;
+    box-shadow: var(--shadow-e1);
+  }
+  .btn-whatsapp:hover { background: #1ebe5a; }
+
+  .btn-ghost {
+    background: transparent;
+    color: var(--color-brand);
+    border: 1.5px solid var(--color-hair);
+  }
+  .btn-ghost:hover { border-color: var(--color-brand); background: #fff; }
+
+  .btn-light {
+    background: #fff;
+    color: var(--color-brand);
+    box-shadow: var(--shadow-e1);
+  }
+
+  /* Card surface */
+  .card {
+    background: #fff;
+    border: 1px solid var(--color-hair);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-e1);
+    transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+  }
+  .card-hover:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-e3);
+    border-color: var(--color-sky);
+  }
+
+  /* Link with animated underline */
+  .link-arrow {
+    font-weight: 600;
+    color: var(--color-brand);
+    transition: gap 0.18s ease, color 0.18s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+  }
+  .link-arrow:hover { color: var(--color-mid); gap: 0.55rem; }
+}
+
+/* Article body (blog posts rendered from rich HTML) */
+.prose {
+  color: var(--color-body);
+  font-size: 1.075rem;
+  line-height: 1.75;
+}
+.prose > * + * { margin-top: 1.15em; }
+.prose h2 {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  margin-top: 1.8em;
+}
+.prose h3 {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  margin-top: 1.5em;
+}
+.prose a { color: var(--color-brand); text-decoration: underline; text-underline-offset: 2px; }
+.prose ul, .prose ol { padding-left: 1.4em; }
+.prose ul { list-style: disc; }
+.prose ol { list-style: decimal; }
+.prose li + li { margin-top: 0.4em; }
+.prose blockquote {
+  border-left: 3px solid var(--color-gold);
+  padding-left: 1.1em;
+  font-style: italic;
+  color: var(--color-ink);
+}
+.prose strong { color: var(--color-ink); font-weight: 700; }
+.prose img { border-radius: var(--radius-card); }
+
+/* Soft ambient glow (page headers, card backdrop) */
+.hero-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(64px);
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* ============================================================
+   Motion — orchestrated page-load + scroll reveal
+   ============================================================ */
+@keyframes rise {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.rise { animation: rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+.d1 { animation-delay: 0.05s; }
+.d2 { animation-delay: 0.15s; }
+.d3 { animation-delay: 0.28s; }
+.d4 { animation-delay: 0.42s; }
+.d5 { animation-delay: 0.56s; }
+
+/* Scroll reveal (toggled by IntersectionObserver) */
+.reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity 0.7s cubic-bezier(0.2, 0.7, 0.2, 1),
+    transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.reveal.in { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .rise, .reveal { animation: none; opacity: 1; transform: none; transition: none; }
+  html { scroll-behavior: auto; }
+}

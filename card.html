@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover"/>
+<title>Chin Yue Hau · Allianz Financial Advisor — Digital Card</title>
+<meta name="description" content="Tap to save my contact. Chin Yue Hau — Licensed Allianz Financial Advisor, Klang Valley. Life, medical, savings, critical illness & accident protection. WhatsApp me anytime."/>
+<meta name="theme-color" content="#001F5B"/>
+<!-- Social share preview (shows when this link is shared on WhatsApp/FB) -->
+<meta property="og:type" content="profile"/>
+<meta property="og:title" content="Chin Yue Hau · Allianz Financial Advisor"/>
+<meta property="og:description" content="Tap to save my contact & get protected. Serving all of Klang Valley."/>
+<meta property="og:image" content="https://yuehau.my/og-card.jpg"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Lora:ital,wght@0,500;0,600;0,700;1,600&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --navy:#001F5B; --blue:#003781; --mid:#0057A8; --bright:#009DE0;
+  --sky:#E4F3FB; --ice:#F4F8FC; --white:#fff;
+  --body:#2A3A55; --muted:#6B7E9A; --border:#D0E4F5;
+  --gold:#C8A84B; --gold2:#F0D48A; --green:#25D366;
+  --glass:rgba(255,255,255,.94);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+body{
+  font-family:'Sora',sans-serif;color:var(--body);min-height:100vh;
+  background:#000820;overflow-x:hidden;position:relative;
+  padding:max(28px,env(safe-area-inset-top)) 18px max(36px,env(safe-area-inset-bottom));
+  display:flex;align-items:flex-start;justify-content:center;
+}
+
+/* ── ANIMATED BACKDROP ── */
+.bg{position:fixed;inset:0;z-index:-3;
+  background:linear-gradient(160deg,#000820 0%,#001040 28%,var(--navy) 55%,var(--blue) 82%,var(--mid) 100%);
+  background-size:200% 200%;animation:bgShift 18s ease-in-out infinite;}
+.orb{position:fixed;border-radius:50%;filter:blur(8px);pointer-events:none;z-index:-2;}
+.orb1{width:60vw;height:60vw;max-width:520px;max-height:520px;top:-12%;right:-18%;
+  background:radial-gradient(circle,rgba(0,157,224,.28),transparent 68%);animation:drift 16s ease-in-out infinite;}
+.orb2{width:48vw;height:48vw;max-width:420px;max-height:420px;bottom:-10%;left:-16%;
+  background:radial-gradient(circle,rgba(200,168,75,.18),transparent 70%);animation:drift 20s ease-in-out infinite reverse;}
+.grid{position:fixed;inset:0;z-index:-2;pointer-events:none;opacity:.5;
+  background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),
+   linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:54px 54px;
+  mask-image:radial-gradient(ellipse at 50% 30%,#000 30%,transparent 80%);}
+@keyframes bgShift{0%,100%{background-position:0% 0%;}50%{background-position:100% 100%;}}
+@keyframes drift{0%,100%{transform:translate(0,0) scale(1);}50%{transform:translate(4%,5%) scale(1.08);}}
+
+/* ── CARD SHELL (3D tilt) ── */
+.scene{width:100%;max-width:430px;perspective:1400px;}
+.card{
+  position:relative;border-radius:30px;padding:30px 26px 26px;
+  background:var(--glass);
+  box-shadow:0 30px 80px rgba(0,8,32,.55),0 4px 20px rgba(0,8,32,.4),
+    inset 0 1px 0 rgba(255,255,255,.9);
+  backdrop-filter:blur(10px);
+  transform-style:preserve-3d;transition:transform .12s ease-out;
+  opacity:0;animation:cardIn .9s cubic-bezier(.2,.8,.2,1) .1s forwards;
+}
+@keyframes cardIn{from{opacity:0;transform:translateY(34px) scale(.96);}to{opacity:1;transform:none;}}
+.card::before{/* gold foil top ribbon */
+  content:"";position:absolute;top:0;left:0;right:0;height:6px;border-radius:30px 30px 0 0;
+  background:linear-gradient(90deg,var(--gold),var(--gold2),var(--gold));
+  background-size:200% 100%;animation:shine 4s linear infinite;}
+@keyframes shine{to{background-position:200% 0;}}
+
+/* floating depth layer for tilt */
+.lift{transform:translateZ(40px);}
+
+/* ── BRAND BAR ── */
+.brandbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;}
+.brandbar .al{display:flex;align-items:center;gap:7px;font-weight:800;letter-spacing:.5px;
+  font-size:13px;color:var(--blue);}
+.brandbar .al .dot{width:9px;height:9px;border-radius:2px;background:var(--blue);
+  box-shadow:3px 0 0 var(--mid),6px 0 0 var(--bright);}
+.brandbar .tag{font-size:9.5px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;
+  color:var(--gold);background:rgba(200,168,75,.12);border:1px solid rgba(200,168,75,.35);
+  padding:4px 9px;border-radius:20px;}
+
+/* ── AVATAR ── */
+.ava-wrap{display:flex;flex-direction:column;align-items:center;text-align:center;}
+.ava{position:relative;width:118px;height:118px;border-radius:50%;margin-bottom:16px;}
+.ava .ring{position:absolute;inset:-6px;border-radius:50%;
+  background:conic-gradient(from 0deg,var(--gold),var(--gold2),var(--bright),var(--gold));
+  animation:spin 7s linear infinite;}
+.ava .inner{position:absolute;inset:0;border-radius:50%;overflow:hidden;
+  background:linear-gradient(150deg,var(--blue),var(--navy));
+  display:flex;align-items:center;justify-content:center;border:4px solid #fff;}
+/* SWAP PHOTO: replace the .mono span below with <img src="yuehau.jpg" alt="Chin Yue Hau" style="width:100%;height:100%;object-fit:cover"> */
+.ava .mono{font-family:'Lora',serif;font-weight:600;font-size:44px;color:#fff;letter-spacing:1px;
+  text-shadow:0 2px 10px rgba(0,0,0,.3);}
+.ava .status{position:absolute;bottom:6px;right:6px;width:26px;height:26px;border-radius:50%;
+  background:var(--green);border:4px solid #fff;z-index:2;}
+.ava .status::after{content:"";position:absolute;inset:-4px;border-radius:50%;border:2px solid var(--green);
+  animation:pulse 2s ease-out infinite;}
+@keyframes spin{to{transform:rotate(360deg);}}
+@keyframes pulse{0%{transform:scale(.8);opacity:.8;}100%{transform:scale(1.7);opacity:0;}}
+
+.name{font-family:'Lora',serif;font-size:27px;font-weight:600;color:var(--navy);line-height:1.1;}
+.title{font-size:13.5px;color:var(--mid);font-weight:600;margin-top:5px;}
+.org{font-size:11.5px;color:var(--muted);margin-top:3px;line-height:1.5;}
+.live{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:600;color:#0a9b4d;
+  margin-top:9px;background:rgba(37,211,102,.1);padding:4px 11px;border-radius:20px;}
+.live .d{width:7px;height:7px;border-radius:50%;background:var(--green);}
+
+/* trust chips */
+.trust{display:flex;gap:7px;justify-content:center;flex-wrap:wrap;margin:16px 0 4px;}
+.chip{font-size:10.5px;font-weight:600;color:var(--blue);background:var(--sky);
+  border:1px solid var(--border);padding:5px 11px;border-radius:20px;display:flex;align-items:center;gap:4px;}
+
+/* ── PRIMARY ACTIONS ── */
+.primary{display:flex;flex-direction:column;gap:11px;margin:22px 0 14px;}
+.bigbtn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;
+  padding:16px;border-radius:16px;font-family:'Sora',sans-serif;font-weight:700;font-size:15px;
+  text-decoration:none;border:none;cursor:pointer;transition:transform .18s,box-shadow .18s,filter .18s;}
+.bigbtn:active{transform:scale(.97);}
+.b-save{background:linear-gradient(135deg,#0a2a6e,var(--blue) 60%,var(--mid));color:#fff;
+  box-shadow:0 10px 26px rgba(0,55,129,.4);position:relative;overflow:hidden;}
+.b-save::after{content:"";position:absolute;top:0;left:-60%;width:50%;height:100%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.35),transparent);
+  transform:skewX(-20deg);animation:sweep 3.4s ease-in-out infinite;}
+@keyframes sweep{0%{left:-60%;}55%,100%{left:140%;}}
+.b-wa{background:linear-gradient(135deg,#25D366,#1ebd5a);color:#fff;box-shadow:0 10px 26px rgba(37,211,102,.4);}
+.bigbtn:hover{transform:translateY(-2px);filter:brightness(1.04);}
+.bigbtn .ico{font-size:19px;}
+
+/* ── ACTION GRID ── */
+.grid-actions{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:4px;}
+.act{display:flex;flex-direction:column;align-items:center;gap:7px;text-decoration:none;
+  padding:13px 4px;border-radius:15px;background:#fff;border:1px solid var(--border);
+  transition:transform .16s,box-shadow .16s,border-color .16s;}
+.act:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(0,55,129,.14);border-color:var(--bright);}
+.act:active{transform:scale(.95);}
+.act .ai{width:42px;height:42px;border-radius:13px;display:flex;align-items:center;justify-content:center;
+  font-size:19px;color:#fff;}
+.act .al{font-size:10.5px;font-weight:600;color:var(--body);}
+.i-call{background:linear-gradient(135deg,#0057A8,#003781);}
+.i-mail{background:linear-gradient(135deg,#0091d4,#0057A8);}
+.i-map{background:linear-gradient(135deg,#e0556b,#c83a52);}
+.i-web{background:linear-gradient(135deg,#C8A84B,#9c7f2f);}
+.i-ig{background:linear-gradient(135deg,#feda75,#d62976 45%,#962fbf);}
+.i-fb{background:linear-gradient(135deg,#188bf6,#0a59d6);}
+.i-tg{background:linear-gradient(135deg,#37bdf8,#1c92d4);}
+.i-ask{background:linear-gradient(135deg,#001F5B,#0057A8);}
+
+/* ── divider / share ── */
+.divider{display:flex;align-items:center;gap:12px;margin:22px 0 16px;color:var(--muted);font-size:11px;font-weight:600;letter-spacing:1px;}
+.divider::before,.divider::after{content:"";flex:1;height:1px;background:var(--border);}
+.share-row{display:flex;gap:10px;}
+.sbtn{flex:1;display:flex;align-items:center;justify-content:center;gap:8px;padding:13px;border-radius:14px;
+  font-family:'Sora';font-weight:600;font-size:13px;cursor:pointer;text-decoration:none;
+  background:var(--ice);color:var(--blue);border:1px solid var(--border);transition:background .16s,transform .16s;}
+.sbtn:hover{background:var(--sky);}
+.sbtn:active{transform:scale(.97);}
+
+/* QR panel */
+.qr-panel{max-height:0;overflow:hidden;transition:max-height .4s ease;}
+.qr-panel.open{max-height:360px;}
+.qr-inner{margin-top:14px;padding:20px;border-radius:18px;background:var(--ice);border:1px solid var(--border);text-align:center;}
+.qr-inner img{width:200px;height:200px;border-radius:12px;background:#fff;padding:8px;box-shadow:var(--sh1);}
+.qr-inner p{font-size:12px;color:var(--muted);margin-top:10px;}
+
+/* footer */
+.foot{margin-top:20px;text-align:center;}
+.foot a{color:var(--mid);text-decoration:none;font-weight:600;}
+.disc{font-size:9.5px;color:var(--muted);line-height:1.6;margin-top:12px;}
+
+.credit{text-align:center;color:rgba(255,255,255,.45);font-size:10px;margin-top:18px;}
+.credit b{color:rgba(255,255,255,.7);}
+
+/* stagger reveal */
+.rv{opacity:0;transform:translateY(14px);animation:rvIn .6s ease forwards;}
+@keyframes rvIn{to{opacity:1;transform:none;}}
+
+/* ════ ASSISTANT WIDGET ════ */
+#askLauncher{position:fixed;right:16px;bottom:16px;z-index:1000;display:flex;align-items:center;gap:9px;
+  padding:12px 18px 12px 14px;border-radius:50px;border:none;cursor:pointer;
+  background:linear-gradient(135deg,var(--blue),var(--mid));color:#fff;font-family:'Sora';font-weight:700;font-size:13.5px;
+  box-shadow:0 10px 30px rgba(0,55,129,.45);transition:transform .2s;}
+#askLauncher:hover{transform:translateY(-2px) scale(1.03);}
+#askLauncher .lb{width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.18);
+  display:flex;align-items:center;justify-content:center;font-size:16px;}
+#askLauncher .nip{position:absolute;top:-3px;right:-3px;width:14px;height:14px;border-radius:50%;
+  background:var(--gold);border:2px solid #fff;}
+#chat{position:fixed;inset:auto 14px 14px auto;z-index:1001;width:min(380px,calc(100vw - 28px));
+  height:min(560px,calc(100vh - 90px));background:#fff;border-radius:22px;overflow:hidden;
+  display:none;flex-direction:column;box-shadow:0 30px 80px rgba(0,8,32,.5);
+  transform:translateY(20px) scale(.98);opacity:0;transition:transform .25s,opacity .25s;}
+#chat.open{display:flex;transform:none;opacity:1;}
+.chat-head{background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff;padding:16px 18px;
+  display:flex;align-items:center;gap:12px;}
+.chat-head .ch-ava{width:42px;height:42px;border-radius:50%;background:linear-gradient(150deg,var(--mid),var(--bright));
+  display:flex;align-items:center;justify-content:center;font-family:'Lora';font-weight:600;font-size:17px;flex:none;position:relative;}
+.chat-head .ch-ava .s{position:absolute;bottom:0;right:0;width:11px;height:11px;border-radius:50%;background:var(--green);border:2px solid var(--navy);}
+.chat-head h4{font-size:15px;font-weight:700;line-height:1.2;}
+.chat-head small{font-size:11px;opacity:.7;}
+.chat-head .x{margin-left:auto;background:rgba(255,255,255,.15);border:none;color:#fff;width:32px;height:32px;
+  border-radius:50%;font-size:18px;cursor:pointer;line-height:1;}
+.chat-body{flex:1;overflow-y:auto;padding:18px 16px;background:var(--ice);display:flex;flex-direction:column;gap:12px;}
+.msg{max-width:82%;padding:11px 14px;border-radius:16px;font-size:13.5px;line-height:1.55;animation:rvIn .35s ease;}
+.msg.bot{align-self:flex-start;background:#fff;color:var(--body);border:1px solid var(--border);border-bottom-left-radius:5px;box-shadow:0 2px 8px rgba(0,55,129,.05);}
+.msg.me{align-self:flex-end;background:linear-gradient(135deg,var(--blue),var(--mid));color:#fff;border-bottom-right-radius:5px;}
+.msg.bot a{color:var(--mid);font-weight:600;}
+.msg .wa-cta{display:inline-flex;align-items:center;gap:7px;margin-top:9px;padding:9px 14px;border-radius:12px;
+  background:var(--green);color:#fff;text-decoration:none;font-weight:700;font-size:12.5px;}
+.chips{display:flex;flex-wrap:wrap;gap:7px;padding:0 16px 8px;}
+.chip-q{background:#fff;border:1px solid var(--border);color:var(--blue);font-family:'Sora';font-weight:600;
+  font-size:12px;padding:8px 13px;border-radius:20px;cursor:pointer;transition:background .15s,transform .15s;}
+.chip-q:hover{background:var(--sky);}
+.chip-q:active{transform:scale(.95);}
+.chat-input{display:flex;gap:8px;padding:12px;border-top:1px solid var(--border);background:#fff;}
+.chat-input input{flex:1;border:1px solid var(--border);border-radius:25px;padding:11px 16px;font-family:'Sora';font-size:13.5px;outline:none;}
+.chat-input input:focus{border-color:var(--bright);}
+.chat-input button{background:linear-gradient(135deg,var(--blue),var(--mid));color:#fff;border:none;width:44px;height:44px;
+  border-radius:50%;cursor:pointer;font-size:17px;flex:none;}
+.typing{display:flex;gap:4px;padding:13px 16px;}
+.typing span{width:7px;height:7px;border-radius:50%;background:var(--muted);animation:blink 1.2s infinite;}
+.typing span:nth-child(2){animation-delay:.2s;}.typing span:nth-child(3){animation-delay:.4s;}
+@keyframes blink{0%,60%,100%{opacity:.3;}30%{opacity:1;}}
+
+@media(max-width:400px){
+  .card{padding:26px 20px 22px;border-radius:26px;}
+  .grid-actions{grid-template-columns:repeat(4,1fr);gap:8px;}
+  .act .ai{width:38px;height:38px;}
+  .name{font-size:24px;}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important;}
+  .card{opacity:1;}
+}
+</style>
+</head>
+<body>
+<div class="bg"></div><div class="orb orb1"></div><div class="orb orb2"></div><div class="grid"></div>
+
+<div class="scene">
+ <main class="card" id="card">
+  <div class="lift">
+
+   <div class="brandbar rv" style="animation-delay:.15s">
+     <span class="al"><span class="dot"></span> Allianz</span>
+     <span class="tag">PIP Agency · SBS Team</span>
+   </div>
+
+   <div class="ava-wrap">
+     <div class="ava rv" style="animation-delay:.2s">
+       <div class="ring"></div>
+       <div class="inner"><span class="mono">YH</span></div>
+       <div class="status"></div>
+     </div>
+     <h1 class="name rv" style="animation-delay:.28s">Chin Yue Hau</h1>
+     <div class="title rv" style="animation-delay:.32s">Licensed Financial Advisor</div>
+     <div class="org rv" style="animation-delay:.36s">Allianz Life Insurance Malaysia Berhad<br/>PIP Agency · SBS Team Sdn Bhd</div>
+     <span class="live rv" style="animation-delay:.4s"><span class="d"></span> Available now · replies fast on WhatsApp</span>
+   </div>
+
+   <div class="trust rv" style="animation-delay:.44s">
+     <span class="chip">⭐ 5.0 Google</span>
+     <span class="chip">🏆 #1 Allianz</span>
+     <span class="chip">🛡️ Licensed</span>
+   </div>
+
+   <div class="primary">
+     <a class="bigbtn b-save rv" style="animation-delay:.48s" id="saveBtn" href="chinyuehau.vcf" download="Chin-Yue-Hau-Allianz.vcf">
+       <span class="ico">👤</span> Save My Contact
+     </a>
+     <a class="bigbtn b-wa rv" style="animation-delay:.52s" target="_blank" rel="noopener"
+        href="https://wa.me/60147058125?text=Hi%20Yue%20Hau%2C%20I%20got%20your%20card%20and%20I%27d%20like%20to%20know%20more%20about%20Allianz%20insurance.">
+       <span class="ico">💬</span> WhatsApp Me
+     </a>
+   </div>
+
+   <div class="grid-actions rv" style="animation-delay:.56s">
+     <a class="act" href="tel:+60147058125"><span class="ai i-call">📞</span><span class="al">Call</span></a>
+     <a class="act" href="mailto:yh.chin.allianz@gmail.com"><span class="ai i-mail">✉️</span><span class="al">Email</span></a>
+     <a class="act" target="_blank" rel="noopener" href="https://www.google.com/maps/place/SBS+Team+Sdn+Bhd/@3.183227,101.622549,17z"><span class="ai i-map">📍</span><span class="al">Office</span></a>
+     <a class="act" href="index.html"><span class="ai i-web">🌐</span><span class="al">Services</span></a>
+     <a class="act" target="_blank" rel="noopener" href="https://instagram.com/chinyuehau"><span class="ai i-ig">📸</span><span class="al">Instagram</span></a>
+     <a class="act" target="_blank" rel="noopener" href="https://facebook.com/chinyuehau"><span class="ai i-fb">👤</span><span class="al">Facebook</span></a>
+     <a class="act" target="_blank" rel="noopener" href="https://t.me/yuehau"><span class="ai i-tg">✈️</span><span class="al">Telegram</span></a>
+     <button class="act" id="askTile" style="background:#fff;border:1px solid var(--border);cursor:pointer;"><span class="ai i-ask">🤖</span><span class="al">Ask AI</span></button>
+   </div>
+
+   <div class="divider rv" style="animation-delay:.6s">SHARE MY CARD</div>
+   <div class="share-row rv" style="animation-delay:.62s">
+     <button class="sbtn" id="shareBtn">🔗 Share</button>
+     <button class="sbtn" id="qrBtn">📱 Show QR</button>
+   </div>
+   <div class="qr-panel" id="qrPanel">
+     <div class="qr-inner">
+       <img id="qrImg" alt="QR code to this card"/>
+       <p>Point a camera here to open my card.</p>
+     </div>
+   </div>
+
+   <div class="foot rv" style="animation-delay:.66s">
+     <p class="disc">Chin Yue Hau is a licensed Financial Advisor representing Allianz Life Insurance Malaysia Berhad (PIP Agency, SBS Team Sdn Bhd). This card is for general information and is not a contract of insurance.</p>
+   </div>
+
+  </div>
+ </main>
+ <p class="credit">Tap-to-save NFC card · <b>chinyuehau</b></p>
+</div>
+
+<!-- ════════ ASSISTANT WIDGET (shared with index.html) ════════ -->
+<button id="askLauncher"><span class="lb">🤖</span> Ask a question<span class="nip"></span></button>
+<div id="chat" role="dialog" aria-label="Insurance assistant">
+  <div class="chat-head">
+    <div class="ch-ava">YH<span class="s"></span></div>
+    <div><h4>Yue Hau's Assistant</h4><small>Quick answers · or chat with me live</small></div>
+    <button class="x" id="chatClose" aria-label="Close">×</button>
+  </div>
+  <div class="chat-body" id="chatBody"></div>
+  <div class="chips" id="chatChips"></div>
+  <form class="chat-input" id="chatForm">
+    <input id="chatInput" type="text" placeholder="Type your question…" autocomplete="off"/>
+    <button type="submit" aria-label="Send">➤</button>
+  </form>
+</div>
+
+<script>
+/* ── 3D tilt (pointer + device orientation) ── */
+(function(){
+  var card=document.getElementById('card');
+  if(!card||window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  var max=7;
+  function set(rx,ry){card.style.transform='rotateX('+rx+'deg) rotateY('+ry+'deg)';}
+  window.addEventListener('pointermove',function(e){
+    if(e.pointerType==='touch')return;
+    var x=(e.clientX/window.innerWidth)-.5, y=(e.clientY/window.innerHeight)-.5;
+    set((-y*max).toFixed(2),(x*max).toFixed(2));
+  },{passive:true});
+  window.addEventListener('pointerleave',function(){set(0,0);});
+  window.addEventListener('deviceorientation',function(e){
+    if(e.gamma==null)return;
+    var ry=Math.max(-max,Math.min(max,e.gamma/4));
+    var rx=Math.max(-max,Math.min(max,(e.beta-45)/4));
+    set((-rx).toFixed(2),ry.toFixed(2));
+  },{passive:true});
+})();
+
+/* ── Save Contact: Blob fallback if the .vcf file isn't reachable ── */
+(function(){
+  var vcf=["BEGIN:VCARD","VERSION:3.0","N:Chin;Yue Hau;;;","FN:Chin Yue Hau",
+   "ORG:Allianz Life Insurance Malaysia Berhad;PIP Agency — SBS Team Sdn Bhd",
+   "TITLE:Licensed Financial Advisor","TEL;TYPE=CELL,VOICE:+60147058125",
+   "TEL;TYPE=WORK,VOICE:+60362859929","EMAIL;TYPE=WORK,INTERNET:yh.chin.allianz@gmail.com",
+   "ADR;TYPE=WORK:;;11 Jalan Daun Inai 21, Sunway SPK Damansara;Kuala Lumpur;Selangor;52200;Malaysia",
+   "URL:"+location.origin+location.pathname.replace(/card\.html$/,'')+"index.html",
+   "X-SOCIALPROFILE;TYPE=instagram:https://instagram.com/chinyuehau",
+   "NOTE:Life, Medical, Savings, Critical Illness & Personal Accident insurance across Klang Valley.",
+   "END:VCARD"].join("\r\n");
+  var btn=document.getElementById('saveBtn');
+  // Verify the static file exists; if not, swap to an on-the-fly blob download.
+  fetch(btn.getAttribute('href'),{method:'HEAD'}).catch(function(){
+    var blob=new Blob([vcf],{type:'text/vcard;charset=utf-8'});
+    btn.setAttribute('href',URL.createObjectURL(blob));
+  });
+})();
+
+/* ── QR (renders this page's live URL) ── */
+(function(){
+  var qrBtn=document.getElementById('qrBtn'),panel=document.getElementById('qrPanel'),img=document.getElementById('qrImg');
+  qrBtn.addEventListener('click',function(){
+    var open=panel.classList.toggle('open');
+    qrBtn.textContent=open?'📱 Hide QR':'📱 Show QR';
+    if(open&&!img.src){
+      img.src='https://api.qrserver.com/v1/create-qr-code/?size=300x300&margin=0&color=001F5B&data='+encodeURIComponent(location.href);
+    }
+  });
+})();
+
+/* ── Share ── */
+document.getElementById('shareBtn').addEventListener('click',function(){
+  var data={title:'Chin Yue Hau · Allianz Financial Advisor',text:'Save my contact & get protected — Klang Valley.',url:location.href};
+  if(navigator.share){navigator.share(data).catch(function(){});}
+  else{navigator.clipboard.writeText(location.href).then(function(){var b=document.getElementById('shareBtn');b.textContent='✓ Link copied';setTimeout(function(){b.textContent='🔗 Share';},1800);});}
+});
+
+/* ════ SMART FAQ ASSISTANT ════ */
+(function(){
+  var WA='https://wa.me/60147058125?text=';
+  function wa(t){return WA+encodeURIComponent(t);}
+  var waBtn='<a class="wa-cta" target="_blank" rel="noopener" href="'+wa('Hi Yue Hau, I have a question about Allianz insurance.')+'">💬 Chat with me on WhatsApp</a>';
+
+  // Knowledge base: keyword groups → answer + follow-up chips
+  var KB=[
+   {k:['price','cost','how much','premium','afford','expensive','cheap','budget','rm','monthly','fee','rate'],
+    a:'Great question! Premiums depend on your age, health, the plan type and how much coverage you want. As a rough guide: personal accident plans can start around <b>RM30–50/month</b>, while comprehensive medical &amp; life plans usually run <b>RM100–RM400+/month</b>. I always tailor it to your budget — let me prepare a personalised quote.',
+    c:['What plans do you offer?','Is there a free consultation?']},
+   {k:['plan','product','offer','types','cover','coverage','what do you','options','protection'],
+    a:'I help you with five core areas of protection:<br>🛡️ <b>Life</b> — income protection for your family<br>🏥 <b>Medical</b> — hospital &amp; surgical bills covered<br>💰 <b>Savings</b> — for education, retirement &amp; goals<br>❤️ <b>Critical Illness</b> — lump-sum payout for serious illness<br>🚑 <b>Personal Accident</b> — protection from injuries.',
+    c:['How much does it cost?','Which plan is best for me?']},
+   {k:['medical','hospital','health','card','surgery','clinic','ward','admission','hospitalisation','hospitalization'],
+    a:'My medical plans give you a <b>medical card</b> so you can get admitted to hospital and have your bills handled — covering hospitalisation, surgery and treatment. Many come with high annual limits and cashless admission at panel hospitals.',
+    c:['How do claims work?','How much does it cost?']},
+   {k:['life','death','family','breadwinner','income','dependent','protect my family','passing'],
+    a:'Life insurance ensures that if anything happens to you, your family receives a payout to replace your income, settle debts and keep their lifestyle secure. It\'s the foundation of a solid financial plan, especially if people depend on you.',
+    c:['What about critical illness?','Book a free consultation']},
+   {k:['saving','invest','retire','retirement','education','child','endowment','future','wealth','goal'],
+    a:'My savings &amp; investment-linked plans help you grow money steadily for goals like your children\'s education or your retirement — while keeping a layer of protection. It\'s a disciplined way to build wealth over time.',
+    c:['How much should I save?','Talk to me about it']},
+   {k:['critical','illness','cancer','heart','stroke','serious','ci','36','diagnosis'],
+    a:'Critical illness cover pays you a <b>lump sum</b> on diagnosis of conditions like cancer, heart attack or stroke — so you can focus on recovery instead of money worries. It covers a wide list of conditions.',
+    c:['What does it cost?','Which plan is best for me?']},
+   {k:['accident','pa','injury','personal accident','disability','fracture'],
+    a:'Personal Accident cover protects you against accidental injury, disability or death — with payouts for hospitalisation, medical expenses and more. It\'s affordable and a smart add-on for everyone.',
+    c:['How much is it?','Book a consultation']},
+   {k:['claim','payout','reimburse','how to claim','claiming'],
+    a:'Claims are simpler than most people think — and I personally guide you through every step. You notify me, we gather the documents (bills, reports, forms), and I help submit everything to Allianz so it\'s processed smoothly. You\'re never alone in the process.',
+    c:['What documents do I need?','Talk to me']},
+   {k:['who','you','about','agent','license','licensed','qualified','legit','scam','real','trust','genuine','experience'],
+    a:'I\'m <b>Chin Yue Hau</b>, a licensed Financial Advisor with <b>Allianz Life Insurance Malaysia Berhad</b>, part of PIP Agency at SBS Team Sdn Bhd in Sunway SPK Damansara. Allianz is one of the world\'s largest and most trusted insurers, and I hold a 5.0★ Google rating from my clients.',
+    c:['Where is your office?','Book a free consultation']},
+   {k:['allianz','company','insurer','reliable','strong'],
+    a:'Allianz is one of the <b>largest and most trusted insurance groups in the world</b>, operating in 70+ countries, and consistently ranked the #1 global insurance brand. In Malaysia, Allianz is known for strong claims payouts and financial stability.',
+    c:['What plans do you offer?','Chat with me']},
+   {k:['where','location','office','address','area','klang','valley','kl','pj','petaling','shah alam','subang','cheras','puchong','near','meet'],
+    a:'My office is at <b>SBS Team Sdn Bhd (PIP Agency), 11 Jalan Daun Inai 21, Sunway SPK Damansara, 52200 KL</b>. I cover the <b>whole Klang Valley</b> — KL, PJ, Shah Alam, Subang, Cheras, Puchong, Klang, Ampang &amp; Damansara — and I also do online consultations by WhatsApp or video call.',
+    c:['Book an appointment','How do I get started?']},
+   {k:['start','begin','sign up','buy','apply','quote','consultation','free','appointment','book','get started','how do i','next step'],
+    a:'Getting started is easy and there\'s <b>no obligation</b>:<br>1️⃣ Message me on WhatsApp<br>2️⃣ We have a quick chat about your needs &amp; budget<br>3️⃣ I prepare a tailored plan and guide you through it.<br>The first consultation is completely <b>free</b>.',
+    c:['Which plan is best for me?','How much does it cost?']},
+   {k:['document','ic','mykad','need','require','requirement','paperwork'],
+    a:'To get started you usually just need your <b>IC/MyKad</b> and some basic details about your health and budget. I\'ll let you know exactly what\'s needed for your specific plan — nothing complicated.',
+    c:['Book a free consultation','What plans do you offer?']},
+   {k:['pay','payment','auto debit','credit card','method','installment','deduct'],
+    a:'Premiums can be paid <b>monthly, quarterly, half-yearly or yearly</b>, via auto-debit, credit/debit card or online banking — whatever is most convenient for you.',
+    c:['How much does it cost?','Talk to me']},
+   {k:['best','recommend','suitable','which plan','for me','should i','advice','my situation'],
+    a:'The best plan really depends on your age, family situation, budget and goals — that\'s exactly what I help you figure out. Tell me a bit about yourself and I\'ll recommend the right mix of protection for you.',
+    c:['Book a free consultation']},
+   {k:['hi','hello','hey','start','good morning','good evening','halo'],
+    a:'Hi there! 👋 I\'m Yue Hau\'s assistant. I can answer quick questions about Allianz insurance plans, costs and how things work. What would you like to know?',
+    c:['What plans do you offer?','How much does it cost?','Is there a free consultation?']},
+   {k:['thank','thanks','great','ok','okay','nice','awesome'],
+    a:'You\'re very welcome! 😊 Whenever you\'re ready, just message me on WhatsApp and I\'ll help you personally.',
+    c:['Book a free consultation']}
+  ];
+
+  var body=document.getElementById('chatBody'),chips=document.getElementById('chatChips'),
+      form=document.getElementById('chatForm'),input=document.getElementById('chatInput'),
+      chat=document.getElementById('chat'),launcher=document.getElementById('askLauncher'),
+      started=false;
+
+  function open(){chat.classList.add('open');launcher.style.display='none';if(!started){started=true;greet();}input.focus();}
+  function close(){chat.classList.remove('open');launcher.style.display='flex';}
+  document.getElementById('askLauncher').addEventListener('click',open);
+  document.getElementById('askTile').addEventListener('click',open);
+  document.getElementById('chatClose').addEventListener('click',close);
+
+  function add(text,who){var d=document.createElement('div');d.className='msg '+who;d.innerHTML=text;body.appendChild(d);body.scrollTop=body.scrollHeight;return d;}
+  function setChips(arr){chips.innerHTML='';(arr||[]).forEach(function(q){var b=document.createElement('button');b.className='chip-q';b.textContent=q;b.onclick=function(){ask(q);};chips.appendChild(b);});}
+  function typing(){var d=document.createElement('div');d.className='msg bot typing';d.innerHTML='<span></span><span></span><span></span>';body.appendChild(d);body.scrollTop=body.scrollHeight;return d;}
+
+  function greet(){
+    add('Hi! 👋 I\'m <b>Yue Hau\'s assistant</b>. Ask me anything about Allianz protection — or tap a question below. For anything detailed, I\'ll connect you straight to Yue Hau on WhatsApp.','bot');
+    setChips(['What plans do you offer?','How much does it cost?','How do claims work?','Is there a free consultation?']);
+  }
+
+  function match(q){
+    var norm=q.toLowerCase().replace(/[^\w\s]/g,' '),toks={};
+    norm.split(/\s+/).forEach(function(t){if(t)toks[t]=1;});
+    var best=null,bestScore=0;
+    KB.forEach(function(e){
+      var sc=0;e.k.forEach(function(kw){
+        var hit = kw.indexOf(' ')>-1 ? norm.indexOf(kw)>-1   // phrase: substring
+                : kw.length>=4 ? norm.indexOf(kw)>-1          // long word: substring (handles plurals)
+                : toks[kw]===1;                               // short word: whole-word only
+        if(hit)sc+=kw.length;
+      });
+      if(sc>bestScore){bestScore=sc;best=e;}
+    });
+    return bestScore>0?best:null;
+  }
+
+  function ask(q){
+    add(q,'me');setChips([]);
+    var t=typing();
+    setTimeout(function(){
+      t.remove();
+      var e=match(q);
+      if(e){add(e.a+'<br>'+waBtn,'bot');setChips(e.c);}
+      else{add('That\'s a great question — I want to make sure you get an accurate answer, so let me connect you directly with Yue Hau. He replies quickly on WhatsApp! 👇<br>'+waBtn,'bot');
+        setChips(['What plans do you offer?','How much does it cost?']);}
+    },650);
+  }
+
+  form.addEventListener('submit',function(ev){ev.preventDefault();var v=input.value.trim();if(!v)return;input.value='';ask(v);});
+})();
+</script>
+</body>
+</html>

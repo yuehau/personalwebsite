@@ -1,0 +1,14 @@
+# Netlify build config for the Next.js app living in the web/ subfolder.
+# Netlify auto-detects Next.js and runs it with server functions for the
+# admin, lead capture, and AI translation — this is NOT a static export.
+
+[build]
+  base = "web"
+  command = "npm run build"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# Next.js runtime (server-side rendering, API routes, proxy/middleware).
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
