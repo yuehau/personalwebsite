@@ -94,7 +94,7 @@ function copyAgentCode(btn) {
   // Agent_Workspace.html → Settings & Sync). When set, every form submission
   // is ALSO saved straight into the Leads tab of your Insurance_CRM sheet.
   // Leave '' to disable. Never blocks the WhatsApp handoff.
-  const CRM_SYNC_URL = 'https://script.google.com/macros/s/AKfycbxVXzoYa71eUKIvcyNso9N6G_GVtEAgxnjHZbUyDqpo6yUchQ7cMXJ-oJJAsE5VWgoPBg/exec';
+  const CRM_SYNC_URL = 'https://script.google.com/macros/s/AKfycbzjBHl-R9YiftrcuP62zGRdMfNIjAbkR3yRxrhJK9sTzVLSjkWaABqgesbAtUjZdHyyOw/exec';
 
   const fields = {
     name: document.getElementById('lf-name'),

@@ -17,6 +17,13 @@ LANGS = ["en", "ms", "zh"]
 HTML_LANG = {"en": "en", "ms": "ms", "zh": "zh-Hans"}
 PILL_LABEL = {"en": "English", "ms": "BM", "zh": "中文"}
 
+# Small inline category icons (stroke, currentColor — inherits the gold chip color).
+ICON = {
+    "medical": '<svg class="cat-ico" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>',
+    "protection": '<svg class="cat-ico" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3.2v5.6c0 4.6-3 7.6-7 9-4-1.4-7-4.4-7-9V6.2L12 3z"/></svg>',
+    "tips": '<svg class="cat-ico" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4M12 3a6 6 0 00-3 11.2c.6.5 1 1.2 1 1.8h4c0-.6.4-1.3 1-1.8A6 6 0 0012 3z"/></svg>',
+}
+
 UI = {
     "en": {
         "blog": "Blog", "home": "Home", "quote": "Get a Quote", "whatsapp": "WhatsApp",
@@ -67,11 +74,17 @@ POSTS = [
         "slug": "do-you-need-a-medical-card",
         "date": "2026-07-07",
         "minutes": 5,
+        "icon": "medical",
         "category": {"en": "Medical", "ms": "Perubatan", "zh": "医疗"},
         "title": {
             "en": "Do you really need a medical card?",
             "ms": "Anda betul-betul perlukan kad perubatan?",
             "zh": "你真的需要医药卡吗？",
+        },
+        "answer": {
+            "en": "Quick answer: if a RM20,000 hospital bill would hurt your savings, yes — you need one.",
+            "ms": "Jawapan ringkas: jika bil hospital RM20,000 akan menjejaskan simpanan anda, ya — anda perlukannya.",
+            "zh": "简短回答：如果一张 RM20,000 的住院账单会伤到你的积蓄，那答案就是——需要。",
         },
         "excerpt": {
             "en": "Hospital bills are the #1 reason Malaysians dip into savings or debt. Here's how to tell — honestly — whether a medical card belongs in your plan.",
@@ -90,6 +103,7 @@ POSTS = [
 <li>Dengue with complications, a week in the ward: <strong>RM10,000–RM20,000</strong></li>
 <li>Heart procedures: <strong>RM30,000 and well beyond</strong></li>
 </ul>
+<div class="pull-stat"><span class="ps-num">RM8k–RM30k+</span><span class="ps-cap">the real range of private hospital bills for common conditions in Malaysia</span></div>
 <p>Government hospitals are heavily subsidised and genuinely good — but the queue is the trade-off. A medical card is essentially buying the option to skip that queue when it matters most.</p>
 <h2>"But my company already covers me"</h2>
 <p>This is the most common reason people wait, and it has two catches. First, employer coverage usually has a low annual limit — RM20,000–RM50,000 is typical — which one serious admission can exceed. Second, and more important: <strong>the coverage ends when the job ends</strong>. If you resign, get retrenched, or retire, you lose it — and if your health has changed by then, buying your own policy may be expensive or impossible. Buying while young and healthy locks in your insurability.</p>
@@ -122,6 +136,7 @@ POSTS = [
 <li>Denggi dengan komplikasi, seminggu di wad: <strong>RM10,000–RM20,000</strong></li>
 <li>Prosedur jantung: <strong>RM30,000 ke atas</strong></li>
 </ul>
+<div class="pull-stat"><span class="ps-num">RM8k–RM30k+</span><span class="ps-cap">julat sebenar bil hospital swasta untuk keadaan yang biasa di Malaysia</span></div>
 <p>Hospital kerajaan memang bagus dan disubsidi — tetapi tukarannya ialah giliran menunggu. Kad perubatan pada asasnya membeli pilihan untuk tidak menunggu ketika ia paling kritikal.</p>
 <h2>"Tapi syarikat saya dah cover"</h2>
 <p>Ini alasan paling biasa orang bertangguh, dan ada dua perangkap. Pertama, perlindungan majikan biasanya ada had tahunan rendah — RM20,000–RM50,000 adalah tipikal — dan satu kemasukan serius boleh melepasi had itu. Kedua, lebih penting: <strong>perlindungan tamat bila kerja tamat</strong>. Berhenti kerja, diberhentikan, atau bersara — hilang. Dan jika kesihatan anda berubah ketika itu, membeli polisi sendiri mungkin mahal atau mustahil. Membeli semasa muda dan sihat mengunci kelayakan anda.</p>
@@ -154,6 +169,7 @@ POSTS = [
 <li>骨痛热症并发症，住院一周：<strong>RM10,000–RM20,000</strong></li>
 <li>心脏手术：<strong>RM30,000 起，往往更高</strong></li>
 </ul>
+<div class="pull-stat"><span class="ps-num">RM8k–RM30k+</span><span class="ps-cap">马来西亚常见病症的私人医院账单真实区间</span></div>
 <p>政府医院有大量津贴，质量也确实不错 — 但代价是排队等候。医药卡的本质，就是在最要紧的时刻买下「不用排队」的选择权。</p>
 <h2>「可是公司已经有保我了」</h2>
 <p>这是最常见的拖延理由，但有两个陷阱。第一，雇主保障的年度限额通常很低 — RM20,000–RM50,000 很常见 — 一次严重住院就可能超过。第二，也是更重要的：<strong>工作结束，保障就结束</strong>。辞职、被裁、退休，保障立刻消失 — 如果那时你的健康状况已经改变，自己再买保单可能很贵，甚至买不到。趁年轻健康时投保，锁定的是你的「可保资格」。</p>
@@ -181,11 +197,17 @@ POSTS = [
         "slug": "medical-card-vs-critical-illness",
         "date": "2026-07-07",
         "minutes": 5,
+        "icon": "protection",
         "category": {"en": "Protection", "ms": "Perlindungan", "zh": "保障"},
         "title": {
             "en": "Medical card vs critical illness cover — what's the difference?",
             "ms": "Kad perubatan vs perlindungan penyakit kritikal — apa bezanya?",
             "zh": "医药卡 vs 危疾保障 — 到底差在哪里？",
+        },
+        "answer": {
+            "en": "Quick answer: one pays your hospital, the other pays your family's bills while you can't work — most people eventually need both.",
+            "ms": "Jawapan ringkas: satu bayar hospital anda, satu lagi bayar bil keluarga semasa anda tak boleh bekerja — kebanyakan orang akhirnya perlukan kedua-duanya.",
+            "zh": "简短回答：一个付医院的钱，一个在你不能工作时养家——大多数人最终两个都需要。",
         },
         "excerpt": {
             "en": "One pays the hospital. The other pays YOU. Confusing them is the most expensive misunderstanding in Malaysian insurance.",
@@ -208,6 +230,7 @@ POSTS = [
 <p>Same illness, two completely different financial problems. The card solved the first. Only the CI cash solved the second.</p>
 <h2>Why serious illness is an income problem, not just a bill problem</h2>
 <p>Treatment for a major illness in Malaysia commonly takes 6–24 months of reduced or zero work. For most working adults, the lost income over that period is <em>bigger than the hospital bill</em>. That's the gap CI cover exists for — it's income protection disguised as health insurance.</p>
+<div class="pull-stat"><span class="ps-num">6–24 months</span><span class="ps-cap">typical time off work during treatment for a major illness</span></div>
 <h2>So which one first?</h2>
 <p>My honest sequence for most people:</p>
 <ul>
@@ -239,6 +262,7 @@ POSTS = [
 <p>Penyakit sama, dua masalah kewangan berbeza. Kad selesaikan yang pertama. Hanya tunai CI selesaikan yang kedua.</p>
 <h2>Kenapa penyakit serius adalah masalah pendapatan, bukan sekadar masalah bil</h2>
 <p>Rawatan penyakit besar di Malaysia biasanya mengambil 6–24 bulan kerja berkurangan atau langsung tiada. Bagi kebanyakan orang dewasa bekerja, pendapatan yang hilang sepanjang tempoh itu <em>lebih besar daripada bil hospital</em>. Itulah jurang yang CI wujud untuk tutup — ia perlindungan pendapatan yang menyamar sebagai insurans kesihatan.</p>
+<div class="pull-stat"><span class="ps-num">6–24 bulan</span><span class="ps-cap">tempoh biasa tidak bekerja semasa rawatan penyakit besar</span></div>
 <h2>Jadi, yang mana dulu?</h2>
 <p>Turutan jujur saya untuk kebanyakan orang:</p>
 <ul>
@@ -270,6 +294,7 @@ POSTS = [
 <p>同一场病，两个完全不同的财务问题。医药卡解决了第一个；第二个，只有 CI 的现金能解决。</p>
 <h2>为什么重病是「收入问题」，不只是「账单问题」</h2>
 <p>在马来西亚，重大疾病的治疗通常意味着 6 至 24 个月无法正常工作。对大多数上班族来说，这段时间损失的收入<em>比医院账单还大</em>。这正是 CI 存在的意义 — 它本质上是披着健康保险外衣的收入保障。</p>
+<div class="pull-stat"><span class="ps-num">6–24 个月</span><span class="ps-cap">重大疾病治疗期间无法正常工作的常见时长</span></div>
 <h2>那么，先买哪个？</h2>
 <p>对大多数人，我诚实的顺序是：</p>
 <ul>
@@ -292,11 +317,17 @@ POSTS = [
         "slug": "first-time-buyer-mistakes",
         "date": "2026-07-07",
         "minutes": 6,
+        "icon": "tips",
         "category": {"en": "Tips", "ms": "Tip", "zh": "贴士"},
         "title": {
             "en": "5 mistakes first-time policy buyers make",
             "ms": "5 kesilapan pembeli polisi kali pertama",
             "zh": "第一次买保险最常犯的 5 个错误",
+        },
+        "answer": {
+            "en": "Quick answer: buy for your real risk (not the lowest price), disclose everything, and pick an agent who still answers your call after you've paid.",
+            "ms": "Jawapan ringkas: beli ikut risiko sebenar anda (bukan harga termurah), isytiharkan semuanya, dan pilih ejen yang masih angkat panggilan selepas anda bayar.",
+            "zh": "简短回答：按你真实的风险去买（不是挑最便宜的），如实申报一切，并选一个收了钱之后还愿意接你电话的代理。",
         },
         "excerpt": {
             "en": "After hundreds of conversations with first-time buyers, the same five mistakes keep appearing. Every one of them is avoidable.",
@@ -310,6 +341,7 @@ POSTS = [
 <p>"What's your cheapest plan?" is the wrong first question. A cheap plan that doesn't cover your actual risk isn't cheap — it's money spent on false security. The right sequence is: understand your situation (dependents, debts, health, savings) → identify the biggest gap → then find the most affordable way to close <em>that gap</em>. Price matters, but it comes third, not first.</p>
 <h2>Mistake 2: Not disclosing health conditions honestly</h2>
 <p>This is the most dangerous one. Some buyers "simplify" their medical history — that clinic visit for chest pain, the borderline blood sugar — thinking it makes approval smoother. Here's the reality: <strong>non-disclosure is the #1 reason claims get rejected</strong>. The insurer will find out during claims investigation, precisely when your family needs the money most. Declare everything. A policy with an exclusion that pays is infinitely better than a clean-looking policy that doesn't.</p>
+<div class="pull-stat"><span class="ps-num">#1</span><span class="ps-cap">reason claims get rejected: non-disclosure of health history</span></div>
 <h2>Mistake 3: Assuming employer coverage is enough</h2>
 <p>Group coverage is a genuine benefit — and a genuinely incomplete one. Typical limits of RM20,000–RM50,000 per year can be exhausted by one serious admission, and the entire benefit evaporates the day you leave the company. Treat employer coverage as a bonus layer, not a foundation. The foundation should be a policy <em>you</em> own, that follows you between jobs.</p>
 <h2>Mistake 4: Waiting until you "need it"</h2>
@@ -325,6 +357,7 @@ POSTS = [
 <p>"Pelan paling murah apa?" adalah soalan pertama yang salah. Pelan murah yang tak melindungi risiko sebenar anda bukannya murah — ia duit yang dibayar untuk rasa selamat yang palsu. Turutan yang betul: faham situasi anda (tanggungan, hutang, kesihatan, simpanan) → kenal pasti jurang terbesar → barulah cari cara paling berpatutan untuk tutup <em>jurang itu</em>. Harga penting, tapi ia nombor tiga, bukan nombor satu.</p>
 <h2>Kesilapan 2: Tidak mendedahkan keadaan kesihatan dengan jujur</h2>
 <p>Ini yang paling bahaya. Ada pembeli "ringkaskan" sejarah perubatan — lawatan klinik sebab sakit dada, gula darah paras sempadan — kononnya supaya kelulusan lancar. Realitinya: <strong>ketidakdedahan adalah punca #1 tuntutan ditolak</strong>. Syarikat insurans akan tahu semasa siasatan tuntutan, tepat ketika keluarga anda paling perlukan duit itu. Isytiharkan semuanya. Polisi dengan pengecualian yang membayar adalah jauh lebih baik daripada polisi nampak bersih yang tidak membayar.</p>
+<div class="pull-stat"><span class="ps-num">#1</span><span class="ps-cap">punca tuntutan ditolak: tidak mendedahkan sejarah kesihatan</span></div>
 <h2>Kesilapan 3: Menganggap perlindungan majikan sudah cukup</h2>
 <p>Perlindungan berkumpulan memang satu kelebihan — tetapi ia tidak lengkap. Had tipikal RM20,000–RM50,000 setahun boleh habis dengan satu kemasukan serius, dan seluruh manfaat lenyap pada hari anda tinggalkan syarikat. Anggap perlindungan majikan sebagai lapisan bonus, bukan asas. Asas sepatutnya polisi milik <em>anda sendiri</em> yang ikut anda ke mana-mana.</p>
 <h2>Kesilapan 4: Menunggu sampai "betul-betul perlu"</h2>
@@ -340,6 +373,7 @@ POSTS = [
 <p>「最便宜的方案是哪个？」是错误的第一个问题。一份保不住你真实风险的便宜保单并不便宜 — 那是花钱买假的安全感。正确的顺序是：先了解自己的情况（家庭负担、债务、健康、积蓄）→ 找出最大的缺口 → 再找最实惠的方式去补<em>那个缺口</em>。价格重要，但它排第三，不是第一。</p>
 <h2>错误二：健康状况不如实申报</h2>
 <p>这是最危险的一个。有些人会「简化」病史 — 那次因胸口痛看诊、那次血糖偏高 — 以为这样批得快。现实是：<strong>不如实申报是理赔被拒的头号原因</strong>。保险公司会在理赔调查时查出来，而那恰恰是你家人最需要这笔钱的时候。全部如实申报。一份带除外条款但会赔的保单，远胜一份看起来干净却不赔的保单。</p>
+<div class="pull-stat"><span class="ps-num">#1</span><span class="ps-cap">理赔被拒的头号原因：健康状况未如实申报</span></div>
 <h2>错误三：以为公司的团体保险就够了</h2>
 <p>团体保障是真福利 — 也是真的不完整。常见的年度限额 RM20,000–RM50,000，一次严重住院就可能用完；而且离职当天，整个保障立刻消失。把公司保障当成加分层，而不是地基。地基应该是一份<em>属于你自己</em>、换工作也跟着你走的保单。</p>
 <h2>错误四：等到「需要的时候」才买</h2>
@@ -487,10 +521,11 @@ def post_page(p, lang):
   <div class="wrap">
     <a class="art-back" href="index.html">{u['back']}</a>
     <div class="art-meta">
-      <span class="chip-cat">{p['category'][lang]}</span>
+      <span class="chip-cat">{ICON[p['icon']]}{p['category'][lang]}</span>
       <span>{u['published']} {date_h}</span><span>·</span><span>{p['minutes']} {u['read']}</span>
     </div>
     <h1 class="art-h1">{p['title'][lang]}</h1>
+    <p class="quick-take">{p['answer'][lang]}</p>
     {pills(lang, fname)}
   </div>
 </div>
@@ -514,7 +549,7 @@ def index_page(lang):
         href = p["slug"] + ".html"
         cards.append(f"""
     <a class="post-card" href="{href}">
-      <div class="pc-top"><span class="chip-cat">{p['category'][lang]}</span><span class="pc-min">{p['minutes']} {u['read']}</span></div>
+      <div class="pc-top"><span class="chip-cat">{ICON[p['icon']]}{p['category'][lang]}</span><span class="pc-min">{p['minutes']} {u['read']}</span></div>
       <h2>{p['title'][lang]}</h2>
       <p>{p['excerpt'][lang]}</p>
       <span class="pc-more">{'Read article →' if lang=='en' else ('Baca artikel →' if lang=='ms' else '阅读全文 →')}</span>
